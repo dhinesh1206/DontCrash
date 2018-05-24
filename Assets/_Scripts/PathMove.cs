@@ -14,6 +14,7 @@ public class PathMove : MonoBehaviour
 	public List<Transform> waypoints;
 	public List<PathList> NodePoints;
 	public List<pathNames> paths;
+    public int PathIndex;
 	public int Index = 0;
 	public float PathPercent = 0;
 	public float speedMultiplier;
@@ -48,9 +49,13 @@ public class PathMove : MonoBehaviour
 			iTween.PutOnPath (gameObject, tempWavepoints, PathPercent);
 			Vector3 tempPosition = iTween.PointOnPath (tempWavepoints,PathPercent+speedMultiplier/10 * Time.deltaTime);
 			enemylookAT.transform.position = tempPosition;
+            
 			gameObject.transform.LookAt (enemylookAT.transform);
-			if (PathPercent > 1) {
-					PathPercent = 0;
+           
+            if (PathPercent > 1) {
+                if (gameObject.name == "Enemy")
+                    PathManager.instance.NextPathSelection();
+                PathPercent = 0;
 					changelanes ();
 			}
 		}
@@ -62,9 +67,8 @@ public class PathMove : MonoBehaviour
 	}
 
 	void changelanes() {
-		int index = Random.Range (0,paths[Index].nextPath.Length);
+        int index = PathIndex;
 		string path = paths [0].nextPath [index];
-		print (path);
 		foreach (var objs in NodePoints) {
 			if (path == objs.pathlistname) {
 				tempWavepoints = GetMyRoute (objs.points);
