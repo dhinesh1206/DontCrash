@@ -15,15 +15,27 @@ public class PlayerSwitchController : MonoBehaviour {
 	void OnEnable() {
 		EasyTouch.On_TouchStart += PlayerSwitch;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void OnDisable()
+    {
+        EasyTouch.On_TouchStart -= PlayerSwitch;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
 	void PlayerSwitch(Gesture gesture) {
-		car1.GetComponent<BoxCollider> ().enabled = !car1.GetComponent<BoxCollider> ().enabled;
-		car2.GetComponent<BoxCollider> ().enabled = !car2.GetComponent<BoxCollider> ().enabled;
+        BoxCollider[] colliders1 = car1.GetComponentsInChildren<BoxCollider>();
+        foreach (var item in colliders1)
+        {
+            item.enabled = !item.enabled;
+        }
+        BoxCollider[] colliders2 = car2.GetComponentsInChildren<BoxCollider>();
+        foreach (var item in colliders2)
+        {
+            item.enabled = !item.enabled;
+        }
 		car1.GetComponent<Renderer> ().enabled = !car1.GetComponent<Renderer> ().enabled;
 		car2.GetComponent<Renderer> ().enabled = !car2.GetComponent<Renderer> ().enabled;
 	}

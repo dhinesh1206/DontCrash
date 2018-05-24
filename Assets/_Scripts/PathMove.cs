@@ -14,48 +14,61 @@ public class PathMove : MonoBehaviour
 	public List<Transform> waypoints;
 	public List<PathList> NodePoints;
 	public List<pathNames> paths;
+    public float initialPathPercentange;
     public int PathIndex;
 	public int Index = 0;
 	public float PathPercent = 0;
 	public float speedMultiplier;
 	public bool pathSwitched;
 	public Transform[] tempWavepoints;
+	public Transform lookatObject;
+    public bool PLaying;
 
-	public GameObject enemylookAT;
 
 	void Start () 
 	{
-		if (enemy)
-			tempWavepoints = GetMyRoute (NodePoints[0].points);
-			
-		else {
-			foreach (var obj in NodePoints) {
-				if (paths [Index].pathname == obj.pathlistname) {
-					movement (GetMyRoute (obj.points));
-				}
-			}
-		}
-
+        PLaying = false;
 	}
 
 	void Awake() {
 		instance = this;
 	}
 
-	void Update() {
-		
-		if (enemy) {
+    private void OnEnable()
+    {
+        MainUiController.GameStarted += StartGame;
+        MainUiController.restartGame += RestartGame;
+    }
+
+    private void OnDisable()
+    {
+        MainUiController.GameStarted -= StartGame;
+        MainUiController.restartGame -= RestartGame;
+    }
+
+    public void StartGame() {
+        PLaying = true;
+        PathPercent = initialPathPercentange;
+        tempWavepoints = GetMyRoute(NodePoints[0].points);
+       
+    }
+
+    public void RestartGame() {
+        PLaying = true;
+        PathPercent = initialPathPercentange;
+        tempWavepoints = GetMyRoute(NodePoints[0].points);
+    }
+
+    void Update() {
+        if (PLaying) {
 			PathPercent += speedMultiplier/10 * Time.deltaTime/tempWavepoints.Length;
 			iTween.PutOnPath (gameObject, tempWavepoints, PathPercent);
-			Vector3 tempPosition = iTween.PointOnPath (tempWavepoints,PathPercent+speedMultiplier/10 * Time.deltaTime);
-			enemylookAT.transform.position = tempPosition;
-            
-			gameObject.transform.LookAt (enemylookAT.transform);
-           
+			if(lookatObject)
+			gameObject.transform.LookAt (lookatObject);
             if (PathPercent > 1) {
-                if (gameObject.name == "Enemy")
+				if (gameObject.name == "Ene1")
                     PathManager.instance.NextPathSelection();
-                PathPercent = 0;
+               		PathPercent = 0;
 					changelanes ();
 			}
 		}
@@ -63,11 +76,17 @@ public class PathMove : MonoBehaviour
 	
 	void movement(Transform[] wayPoints) 
 	{
-		iTween.MoveTo (gameObject, iTween.Hash ("path", wayPoints, "speed", speed, "easetype", iTween.EaseType.linear, "oncomplete", "changelanes","oncompletetarget",gameObject, "orientToPath", true, "looktime",0.01f));
+		iTween.MoveTo (gameObject, iTween.Hash ("path", wayPoints, "speed", speed, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.loop,"oncompletetarget",gameObject, "orientToPath", true, "looktime",0.01f));
 	}
 
 	void changelanes() {
-        int index = PathIndex;
+        int index;
+        if (enemy)
+        {
+            index = PathIndex;
+        } else {
+            index = 0;
+        }
 		string path = paths [0].nextPath [index];
 		foreach (var objs in NodePoints) {
 			if (path == objs.pathlistname) {

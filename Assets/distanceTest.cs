@@ -7,6 +7,8 @@ public class distanceTest : MonoBehaviour {
 	bool paused;
 	public float minimumDistance;
 	public float maximumDistance;
+	public float[] FirstDistance;
+	public float[] SecontDistance;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,11 +16,13 @@ public class distanceTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		checkDistance (enemy[0],enemy[1]);
-		checkDistance (enemy [1], enemy [2]);
+		checkDistance (enemy[0],enemy[1], FirstDistance);
+		checkDistance (enemy [1], enemy [2], SecontDistance);
 	}
 
-	void checkDistance(GameObject BeforePlayer, GameObject followingplayer) {
-		
+	void checkDistance(GameObject BeforePlayer, GameObject followingplayer, float[] Distance) {
+		if (Vector3.Distance (enemy [0].transform.position, enemy [1].transform.position )> Distance [0]) {
+		//	followingplayer.GetComponent<PathMove>().
+		}
 	}
 }
