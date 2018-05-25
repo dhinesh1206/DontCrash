@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac110717fe4e4a269f757d90f29f4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 0
+  godMode: 1
 --- !u!1 &117413933
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,10 +395,10 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.12
+  initialPathPercentange: 0.105
   PathIndex: 0
   Index: 0
-  PathPercent: 0.12
+  PathPercent: 0.11
   speedMultiplier: 6
   pathSwitched: 0
   tempWavepoints: []
@@ -733,9 +733,9 @@ MonoBehaviour:
   - {fileID: 1613347969}
   - {fileID: 1564856490}
   speed:
-  - 15
-  - 15.5
-  - 14.5
+  - 20
+  - 21
+  - 19
   lookAt:
   - {fileID: 903832425}
   - {fileID: 117629483}
@@ -1408,10 +1408,10 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.08
+  initialPathPercentange: 0.06
   PathIndex: 0
   Index: 0
-  PathPercent: 0.08
+  PathPercent: 0.06
   speedMultiplier: 10
   pathSwitched: 0
   tempWavepoints: []
@@ -1755,10 +1755,10 @@ MonoBehaviour:
   - pathname: PlayerInside
     nextPath:
     - PlayerInside
-  initialPathPercentange: 0.15
+  initialPathPercentange: 0.16
   PathIndex: 0
   Index: 0
-  PathPercent: 0.15
+  PathPercent: 0.16
   speedMultiplier: 10
   pathSwitched: 0
   tempWavepoints: []
@@ -1951,10 +1951,10 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.15
+  initialPathPercentange: 0.16
   PathIndex: 0
   Index: 0
-  PathPercent: 0.15
+  PathPercent: 0.16
   speedMultiplier: 6
   pathSwitched: 0
   tempWavepoints: []
@@ -3257,10 +3257,10 @@ MonoBehaviour:
   - pathname: PlayerOutside
     nextPath:
     - PlayerOutside
-  initialPathPercentange: 0.15
+  initialPathPercentange: 0.16
   PathIndex: 0
   Index: 0
-  PathPercent: 0.15
+  PathPercent: 0.16
   speedMultiplier: 10
   pathSwitched: 0
   tempWavepoints: []
@@ -3419,7 +3419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac110717fe4e4a269f757d90f29f4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 0
+  godMode: 1
 --- !u!1 &1485031177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,7 +3547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515355865
 Transform:
   m_ObjectHideFlags: 0
@@ -3597,10 +3597,10 @@ MonoBehaviour:
   - pathname: PlayerOutside
     nextPath:
     - PlayerOutside
-  initialPathPercentange: 0.12
+  initialPathPercentange: 0.15
   PathIndex: 0
   Index: 0
-  PathPercent: 0.12
+  PathPercent: 0.15
   speedMultiplier: 10
   pathSwitched: 0
   tempWavepoints: []
@@ -3665,7 +3665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1564856490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,7 +3677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   Score: 0
   enemy: 1
   easeType: 21
@@ -3713,14 +3713,14 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.04
+  initialPathPercentange: 0.05
   PathIndex: 0
   Index: 0
-  PathPercent: 0.04
+  PathPercent: 0.05
   speedMultiplier: 6
   pathSwitched: 0
   tempWavepoints: []
-  lookatObject: {fileID: 660728378}
+  lookatObject: {fileID: 0}
   PLaying: 0
 --- !u!23 &1564856491
 MeshRenderer:
@@ -3782,7 +3782,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1564856489}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.8709998, y: 0, z: -6.8}
+  m_LocalPosition: {x: 4.7479997, y: 0, z: -6.8}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 1069599779}
@@ -3886,14 +3886,14 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.08
+  initialPathPercentange: 0.1
   PathIndex: 0
   Index: 0
   PathPercent: 0.08
   speedMultiplier: 6
   pathSwitched: 0
   tempWavepoints: []
-  lookatObject: {fileID: 117629482}
+  lookatObject: {fileID: 0}
   PLaying: 0
 --- !u!23 &1613347972
 MeshRenderer:
@@ -3955,7 +3955,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613347968}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.5289998, y: 0, z: -6.8}
+  m_LocalPosition: {x: 3.09, y: 0, z: -6.8}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 1413701773}
@@ -3980,7 +3980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1614550308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4016,10 +4016,10 @@ MonoBehaviour:
   - pathname: PlayerInside
     nextPath:
     - PlayerInside
-  initialPathPercentange: 0.12
+  initialPathPercentange: 0.15
   PathIndex: 0
   Index: 0
-  PathPercent: 0.12
+  PathPercent: 0.15
   speedMultiplier: 10
   pathSwitched: 0
   tempWavepoints: []
@@ -5130,14 +5130,14 @@ MonoBehaviour:
     - Outer2InnerOuter
     - Outer3InnerOutter
     - 2OuterInnerOutter
-  initialPathPercentange: 0.12
+  initialPathPercentange: 0.15
   PathIndex: 0
   Index: 0
-  PathPercent: 0.12
+  PathPercent: 0.15
   speedMultiplier: 6
   pathSwitched: 0
   tempWavepoints: []
-  lookatObject: {fileID: 903832424}
+  lookatObject: {fileID: 0}
   PLaying: 0
 --- !u!23 &2084395828
 MeshRenderer:
@@ -5199,7 +5199,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2084395826}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.27, y: 0, z: -6.8}
+  m_LocalPosition: {x: 0, y: 0, z: -6.8}
   m_LocalScale: {x: 0.75000095, y: 0.75, z: 0.75000095}
   m_Children:
   - {fileID: 456796444}

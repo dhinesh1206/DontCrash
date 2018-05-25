@@ -71,24 +71,22 @@ public class ScoreManager : MonoBehaviour {
             sideColliders[0].SetActive(true);
             sideColliders[1].SetActive(true);
             sideColliders[2].SetActive(false);
-        }
-        else if (score > 5 && score < 16)
-        {
             foreach (PathMove item in players)
             {
                 item.speedMultiplier = speed[1];
             }
-           
-			lookAt [0].speedMultiplier = speed [1];
-            enemy[0].speedMultiplier = speed[1];
+
+            lookAt[0].speedMultiplier = speed[1];
+
         }
-        else if(score > 16)
+         else if (score == 16)
         {
             sideColliders[0].SetActive(true);
             sideColliders[1].SetActive(true);
             sideColliders[2].SetActive(true);
-			lookAt [2].speedMultiplier = speed [2];
             enemy[2].speedMultiplier = speed[2];
+            lookAt[2].speedMultiplier = speed[2];
+
         }
 	}
 
