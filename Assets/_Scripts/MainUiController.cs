@@ -17,12 +17,10 @@ public class MainUiController : MonoBehaviour {
     public GameObject gameOverScreen;
     public GameObject playingScreen;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -36,7 +34,6 @@ public class MainUiController : MonoBehaviour {
 	}
 		
 	public void GameOver() {
-        //Time.timeScale = 0;
         foreach (GameObject item in playerandEnemy)
         {
             item.GetComponent<PathMove>().PLaying = false;

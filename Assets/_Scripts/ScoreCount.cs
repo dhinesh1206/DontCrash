@@ -11,12 +11,10 @@ public class ScoreCount : MonoBehaviour {
 	public static event PlayerDied playerDied;
     public bool godMode;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
     }
 

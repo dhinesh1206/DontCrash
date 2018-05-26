@@ -7,7 +7,7 @@ public class PlayerSwitchController : MonoBehaviour {
 
 	public GameObject car1;
 	public GameObject car2;
-	// Use this for initialization
+	
 	void Start () {
 		
 	}
@@ -15,12 +15,12 @@ public class PlayerSwitchController : MonoBehaviour {
 	void OnEnable() {
 		EasyTouch.On_TouchStart += PlayerSwitch;
 	}
+
     private void OnDisable()
     {
         EasyTouch.On_TouchStart -= PlayerSwitch;
     }
 
-    // Update is called once per frame
     void Update () {
 		
 	}
