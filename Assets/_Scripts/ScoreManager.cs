@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject[] sideColliders;
     public PathMove[] players;
     public GameObject[] frontCollider;
-
+    // Use this for initialization
     void Start()
     {
         CheckScore();
@@ -27,14 +28,14 @@ public class ScoreManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.Instance.ScoreAdded += Calculate;
-        GameEvents.Instance.GameStarted += RestartGame;
+        GameEvents.ScoreAdded += Calculate;
+        MainUiController.restartGame += RestartGame;
     }
 
     void OnDisable()
     {
-        GameEvents.Instance.ScoreAdded -= Calculate;
-        GameEvents.Instance.GameStarted -= RestartGame;
+        GameEvents.ScoreAdded -= Calculate;
+        MainUiController.restartGame -= RestartGame;
     }
 
     void Calculate()
@@ -82,40 +83,34 @@ public class ScoreManager : MonoBehaviour
             }
             enemy[0].speedMultiplier = speed[1];
             lookAt[0].speedMultiplier = speed[1];
-            StartCoroutine(SetSpeedBack(2f, enemy[0], lookAt[0], speed[0]));
+            StartCoroutine(SetSpeedBAck(2f, enemy[0], lookAt[0], speed[0]));
         }
         else if (score == 16)
         {
             StartCoroutine(SetActiveCollider());
             enemy[1].speedMultiplier = speed[2];
             lookAt[1].speedMultiplier = speed[2];
-            StartCoroutine(SetSpeedBack(2f, enemy[1], lookAt[1], speed[0]));
+            StartCoroutine(SetSpeedBAck(2f, enemy[1], lookAt[1], speed[0]));
         }
     }
 
-    IEnumerator SetActiveCollider()
-    {
+    IEnumerator SetActiveCollider(){
         yield return new WaitForSeconds(0.5f);
-        if (score < 5)
-        {
+        if(score<5) {
             sideColliders[0].SetActive(true);
             frontCollider[0].SetActive(true);
             sideColliders[1].SetActive(false);
             frontCollider[1].SetActive(false);
             sideColliders[2].SetActive(false);
             frontCollider[2].SetActive(false);
-        }
-        else if (score == 16)
-        {
+        } else if(score == 16) {
             frontCollider[0].SetActive(true);
             sideColliders[1].SetActive(true);
             frontCollider[2].SetActive(true);
             frontCollider[0].SetActive(true);
             sideColliders[1].SetActive(true);
             sideColliders[2].SetActive(true);
-        }
-        else if (score == 6)
-        {
+        } else if(score == 6) {
             frontCollider[0].SetActive(true);
             frontCollider[1].SetActive(true);
             frontCollider[2].SetActive(false);
@@ -125,7 +120,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    IEnumerator SetSpeedBack(float timz, PathMove enem, PathMove lookat, float speeds)
+    IEnumerator SetSpeedBAck(float timz, PathMove enem, PathMove lookat, float speeds)
     {
         yield return new WaitForSeconds(timz);
         enem.speedMultiplier = speeds;

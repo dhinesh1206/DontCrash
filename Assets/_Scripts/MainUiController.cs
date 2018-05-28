@@ -1,41 +1,60 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainUiController : MonoBehaviour
-{
+public class MainUiController : MonoBehaviour {
+    
+    public delegate void StartGame();
+    public static event StartGame GameStarted;
+
+    public delegate void Restart();
+    public static event Restart restartGame;
+
+
     public GameObject[] playerandEnemy;
-    public GameObject playScreen, gameOverScreen, playingScreen;
+    public GameObject playScreen;
+    public GameObject gameOverScreen;
+    public GameObject playingScreen;
 
-    void OnEnable()
-    {
-        GameEvents.Instance.playerDied += GameOver;
-    }
+	void Start () {
+		
+	}
+	
+	void Update () {
+		
+	}
+		
+	void OnEnable() {
+        GameEvents.playerDied += GameOver;
+	}
 
-    void OnDisable()
-    {
-        GameEvents.Instance.playerDied -= GameOver;
-    }
-
-    public void GameOver()
-    {
-
+	void OnDisable() {
+        GameEvents.playerDied -= GameOver;
+	}
+		
+	public void GameOver() {
+       
         foreach (GameObject item in playerandEnemy)
         {
             item.GetComponent<PathMove>().PLaying = false;
         }
         gameOverScreen.SetActive(true);
-    }
+	}
 
-    public void Gamestart()
-    {
+    public void Gamestart() {
         playScreen.SetActive(false);
         playingScreen.SetActive(true);
-        GameEvents.Instance.StartGame();
+        if(GameStarted!= null){
+            GameStarted();
+        }
     }
 
-    public void RestartGame()
-    {
+    public void RestartGame() {
         playingScreen.SetActive(true);
         gameOverScreen.SetActive(false);
-        GameEvents.Instance.StartGame();
+        if(restartGame!= null) {
+            restartGame();
+        }
     }
 }
