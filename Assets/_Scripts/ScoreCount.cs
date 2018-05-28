@@ -1,49 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ScoreCount : MonoBehaviour {
-
-	//public delegate void ScoreEvent();
-	//public static event ScoreEvent ScoreAdded ;
-
-	
+public class ScoreCount : MonoBehaviour
+{
     public bool godMode;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    }
-
-	void OnCollisionEnter(Collision collision) 
+    void OnCollisionEnter(Collision collision)
     {
         if (!godMode)
         {
 
             if (collision.transform.gameObject.tag == "NearEnemy")
             {
-                GameEvents.instance.IncrementScore();
+                GameEvents.Instance.IncrementScore();
             }
-            else if (collision.transform.gameObject.tag == "Enemy") 
+            else if (collision.transform.gameObject.tag == "Enemy")
             {
-                GameEvents.instance.PlayerDie();
-            }  
+                GameEvents.Instance.PlayerDie();
+            }
         }
-	}
+    }
 
     private void OnCollisionExit(Collision collision)
     {
-         if (collision.transform.gameObject.tag == "FinishPoint")
+        if (collision.transform.gameObject.tag == "FinishPoint")
         {
-            GameEvents.instance.IncrementScore();
+            GameEvents.Instance.IncrementScore();
         }
         else if (collision.transform.gameObject.tag == "SideCollider")
         {
-            GameEvents.instance.IncrementScore();
+            GameEvents.Instance.IncrementScore();
         }
     }
 }

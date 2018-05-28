@@ -1,35 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GameEvents : MonoBehaviour {
+public class GameEvents : MonoBehaviour
+{
 
-    public static GameEvents instance;
+    public static GameEvents Instance;
 
-    public delegate void ScoreEvent();
-    public static event ScoreEvent ScoreAdded;
-
-
-    public delegate void PlayerDied();
-    public static event PlayerDied playerDied;
+    public delegate void ParameterlessDelegate();
+    public event ParameterlessDelegate ScoreAdded, playerDied, GameStarted;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
-    public void IncrementScore() 
+    public void IncrementScore()
     {
-        if(ScoreAdded != null)
+        if (ScoreAdded != null)
         {
             ScoreAdded();
         }
-       
+
     }
 
-    public void PlayerDie() {
-        if(playerDied!=null) {
+    public void PlayerDie()
+    {
+        if (playerDied != null)
+        {
             playerDied();
+        }
+    }
+
+    public void StartGame()
+    {
+        if (GameStarted != null)
+        {
+            GameStarted();
         }
     }
 }
