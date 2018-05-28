@@ -179,7 +179,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 40459939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63724aeb51544ef9898805e8d0b9b08, type: 3}
+  m_Script: {fileID: 11500000, guid: e393e07906ded4883b5b6dd9af1e4b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 0
@@ -246,7 +246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &117629481
 GameObject:
@@ -288,8 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -349,14 +347,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.12
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.12
   speedMultiplier: 6
+  initialPathPercentange: 0.12
   currentWavePoint: []
   lookatObject: {fileID: 0}
   PLaying: 0
+  enemy: 1
 --- !u!4 &158365590 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4590186150253704, guid: 6f38f36c9697c4eb3abc1ddc15840af0,
@@ -531,8 +531,6 @@ GameObject:
   - component: {fileID: 235224450}
   - component: {fileID: 235224449}
   - component: {fileID: 235224448}
-  - component: {fileID: 235224453}
-  - component: {fileID: 235224454}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -601,72 +599,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &235224453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 235224447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ce4e01667c145abac5765d6c243f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  enemy:
-  - {fileID: 2084395827}
-  - {fileID: 1613347969}
-  - {fileID: 1564856490}
-  speed:
-  - 20
-  - 23
-  - 21.5
-  lookAt:
-  - {fileID: 903832425}
-  - {fileID: 117629483}
-  - {fileID: 660728379}
-  scoreText: {fileID: 721800520}
-  sideColliders:
-  - {fileID: 1635721919}
-  - {fileID: 190778358}
-  - {fileID: 332483304}
-  players:
-  - {fileID: 1614550308}
-  - {fileID: 1515355866}
-  - {fileID: 835729531}
-  - {fileID: 1447361505}
-  frontCollider:
-  - {fileID: 456796443}
-  - {fileID: 1413701772}
-  - {fileID: 1069599778}
---- !u!114 &235224454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 235224447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5a611c9144444a8bcbec4fbbccc13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathIndex: 0
-  score: 0
-  enemy:
-  - {fileID: 2084395827}
-  - {fileID: 1613347969}
-  - {fileID: 1564856490}
-  paths: []
-  lookAt:
-  - {fileID: 903832425}
-  - {fileID: 117629483}
-  - {fileID: 660728379}
-  ScoreEnemyColliders:
-  - {fileID: 1635721919}
-  - {fileID: 190778358}
-  - {fileID: 332483304}
 --- !u!1 &278095578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +941,7 @@ Transform:
   - {fileID: 1613347975}
   - {fileID: 1564856494}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543557338
 GameObject:
@@ -1125,7 +1059,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4519607294894194, guid: 6f38f36c9697c4eb3abc1ddc15840af0, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1020100444206406, guid: 6f38f36c9697c4eb3abc1ddc15840af0, type: 2}
       propertyPath: m_Name
@@ -1174,8 +1108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -1235,14 +1167,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.07
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.07
   speedMultiplier: 6
+  initialPathPercentange: 0.07
   currentWavePoint: []
   lookatObject: {fileID: 0}
   PLaying: 0
+  enemy: 1
 --- !u!1 &721800518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1261,126 @@ Transform:
   m_PrefabParentObject: {fileID: 4205961731924850, guid: 6f38f36c9697c4eb3abc1ddc15840af0,
     type: 2}
   m_PrefabInternal: {fileID: 613992807}
+--- !u!1 &779949393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 779949395}
+  - component: {fileID: 779949394}
+  - component: {fileID: 779949398}
+  - component: {fileID: 779949397}
+  - component: {fileID: 779949396}
+  m_Layer: 0
+  m_Name: _GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &779949394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779949393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436d423742d6240689c7dcbe3f9abeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  sideColliders:
+  - {fileID: 1635721919}
+  - {fileID: 190778358}
+  - {fileID: 332483304}
+  frontCollider:
+  - {fileID: 456796443}
+  - {fileID: 1413701772}
+  - {fileID: 1069599778}
+--- !u!4 &779949395
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779949393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1410, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779949396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779949393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5a611c9144444a8bcbec4fbbccc13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathIndex: 0
+  score: 0
+  enemy:
+  - {fileID: 2084395827}
+  - {fileID: 1613347969}
+  - {fileID: 1564856490}
+  paths: []
+  lookAt:
+  - {fileID: 903832425}
+  - {fileID: 117629483}
+  - {fileID: 660728379}
+  ScoreEnemyColliders:
+  - {fileID: 1635721919}
+  - {fileID: 190778358}
+  - {fileID: 332483304}
+--- !u!114 &779949397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779949393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ce4e01667c145abac5765d6c243f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 721800520}
+--- !u!114 &779949398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779949393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb4ec6a81e0b4137b89c051654f547a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1614550308}
+  - {fileID: 1515355866}
+  - {fileID: 835729531}
+  - {fileID: 1447361505}
+  lookAt:
+  - {fileID: 903832425}
+  - {fileID: 117629483}
+  - {fileID: 660728379}
+  enemy:
+  - {fileID: 2084395827}
+  - {fileID: 1613347969}
+  - {fileID: 1564856490}
+  speed:
+  - 20
+  - 24
+  - 22
+  score: 0
 --- !u!1 &835729530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,8 +1408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 0
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -1377,14 +1429,16 @@ MonoBehaviour:
   - pathname: PlayerInside
     nextPath:
     - PlayerInside
-  initialPathPercentange: 0.17
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.17
   speedMultiplier: 10
+  initialPathPercentange: 0.17
   currentWavePoint: []
   lookatObject: {fileID: 0}
   PLaying: 0
+  enemy: 0
 --- !u!4 &835729532
 Transform:
   m_ObjectHideFlags: 0
@@ -1493,8 +1547,8 @@ MonoBehaviour:
   - {fileID: 1368891328}
   - {fileID: 979025507}
   time: 0.15
-  easeType: 0
   delay: 0.03
+  easeType: 0
   bestScoreText: {fileID: 543557340}
 --- !u!1 &903832423
 GameObject:
@@ -1536,8 +1590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -1597,14 +1649,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.17
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.17
   speedMultiplier: 6
+  initialPathPercentange: 0.17
   currentWavePoint: []
   lookatObject: {fileID: 0}
   PLaying: 0
+  enemy: 1
 --- !u!1 &906736285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2222,7 @@ RectTransform:
   - {fileID: 1983044255}
   - {fileID: 898054727}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2213,7 +2267,7 @@ Transform:
   - {fileID: 1614550312}
   - {fileID: 1515355865}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364923197
 GameObject:
@@ -2225,7 +2279,7 @@ GameObject:
   - component: {fileID: 1364923199}
   - component: {fileID: 1364923198}
   m_Layer: 0
-  m_Name: GameEvents
+  m_Name: _GameEvents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2253,7 +2307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368891328
 GameObject:
@@ -2476,8 +2530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 0
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -2499,14 +2551,16 @@ MonoBehaviour:
   - pathname: PlayerOutside
     nextPath:
     - PlayerOutside
-  initialPathPercentange: 0.17
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.17
   speedMultiplier: 10
+  initialPathPercentange: 0.17
   currentWavePoint: []
   lookatObject: {fileID: 0}
   PLaying: 0
+  enemy: 0
 --- !u!4 &1447361506
 Transform:
   m_ObjectHideFlags: 0
@@ -2591,7 +2645,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465600731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63724aeb51544ef9898805e8d0b9b08, type: 3}
+  m_Script: {fileID: 11500000, guid: e393e07906ded4883b5b6dd9af1e4b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 0
@@ -2748,8 +2802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 0
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -2771,14 +2823,16 @@ MonoBehaviour:
   - pathname: PlayerOutside
     nextPath:
     - PlayerOutside
-  initialPathPercentange: 0.15
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.15
   speedMultiplier: 10
+  initialPathPercentange: 0.15
   currentWavePoint: []
   lookatObject: {fileID: 1447361506}
   PLaying: 0
+  enemy: 0
 --- !u!23 &1515355867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2850,8 +2904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -2911,14 +2963,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.05
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.05
   speedMultiplier: 6
+  initialPathPercentange: 0.05
   currentWavePoint: []
   lookatObject: {fileID: 660728378}
   PLaying: 0
+  enemy: 1
 --- !u!23 &1564856491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3017,8 +3071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -3078,14 +3130,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.1
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.1
   speedMultiplier: 6
+  initialPathPercentange: 0.1
   currentWavePoint: []
   lookatObject: {fileID: 117629482}
   PLaying: 0
+  enemy: 1
 --- !u!23 &1613347972
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3183,8 +3237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 0
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -3206,14 +3258,16 @@ MonoBehaviour:
   - pathname: PlayerInside
     nextPath:
     - PlayerInside
-  initialPathPercentange: 0.15
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.15
   speedMultiplier: 10
+  initialPathPercentange: 0.15
   currentWavePoint: []
   lookatObject: {fileID: 835729532}
   PLaying: 0
+  enemy: 0
 --- !u!23 &1614550309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3723,7 +3777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928511804
 GameObject:
@@ -3809,7 +3863,7 @@ Transform:
   - {fileID: 2143990460}
   - {fileID: 332106895}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938296764
 GameObject:
@@ -3842,7 +3896,7 @@ Transform:
   - {fileID: 835729532}
   - {fileID: 1447361506}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944792333
 GameObject:
@@ -3871,7 +3925,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1944792336
 MonoBehaviour:
@@ -3967,7 +4021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983044254
 GameObject:
@@ -4068,8 +4122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fffdd6f66994876a7653cab043dbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  enemy: 1
   easeType: 21
   waypoints:
   - {fileID: 1457084929}
@@ -4129,14 +4181,16 @@ MonoBehaviour:
     - Outer-Inner(R)-Inner-Inner-Inner(R)-Outer
     - Outer-Inner(L)-Inner-Inner-Inner(L)-Outer
     - Outer-Inner(R)-Inner-Inner-Inner(L)-Outer
-  initialPathPercentange: 0.15
   PathIndex: 0
+  Score: 0
   Index: 0
   PathPercent: 0.15
   speedMultiplier: 6
+  initialPathPercentange: 0.15
   currentWavePoint: []
   lookatObject: {fileID: 903832424}
   PLaying: 0
+  enemy: 1
 --- !u!23 &2084395828
 MeshRenderer:
   m_ObjectHideFlags: 0

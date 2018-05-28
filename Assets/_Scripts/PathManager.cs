@@ -26,14 +26,14 @@ public class PathManager : MonoBehaviour
     void OnEnable()
     {
         GameEvents.Instance.ScoreAdded += Calculate;
-        GameEvents.Instance.playerDied += UpdateHighScore;
+       
         GameEvents.Instance.GameStarted += RestartGame;
     }
 
     void OnDisable()
     {
         GameEvents.Instance.ScoreAdded -= Calculate;
-        GameEvents.Instance.playerDied -= UpdateHighScore;
+       
         GameEvents.Instance.GameStarted -= RestartGame;
     }
 
@@ -42,18 +42,7 @@ public class PathManager : MonoBehaviour
         score += 1;
     }
 
-    public void UpdateHighScore()
-    {
-        foreach (GameObject collide in ScoreEnemyColliders)
-        {
-            collide.gameObject.GetComponent<BoxCollider>().enabled = false;
-        }
-        int Highscore = PlayerPrefs.GetInt("HighScore");
-        if (Highscore < score)
-        {
-            PlayerPrefs.SetInt("HighScore", score);
-        }
-    }
+
 
     void RestartGame()
     {

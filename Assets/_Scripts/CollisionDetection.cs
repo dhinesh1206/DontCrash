@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ScoreCount : MonoBehaviour
+public class CollisionDetection : MonoBehaviour
 {
     public bool godMode;
 
