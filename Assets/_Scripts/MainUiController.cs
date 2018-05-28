@@ -26,14 +26,15 @@ public class MainUiController : MonoBehaviour {
 	}
 		
 	void OnEnable() {
-		ScoreCount.playerDied += GameOver;
+        GameEvents.playerDied += GameOver;
 	}
 
 	void OnDisable() {
-		ScoreCount.playerDied -= GameOver;
+        GameEvents.playerDied -= GameOver;
 	}
 		
 	public void GameOver() {
+       
         foreach (GameObject item in playerandEnemy)
         {
             item.GetComponent<PathMove>().PLaying = false;

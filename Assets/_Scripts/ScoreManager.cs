@@ -14,7 +14,8 @@ public class ScoreManager : MonoBehaviour
     public Text scoreText;
     public GameObject[] sideColliders;
     public PathMove[] players;
-   
+    public GameObject[] frontCollider;
+    // Use this for initialization
     void Start()
     {
         CheckScore();
@@ -27,13 +28,13 @@ public class ScoreManager : MonoBehaviour
 
     void OnEnable()
     {
-        ScoreCount.ScoreAdded += Calculate;
+        GameEvents.ScoreAdded += Calculate;
         MainUiController.restartGame += RestartGame;
     }
 
     void OnDisable()
     {
-        ScoreCount.ScoreAdded -= Calculate;
+        GameEvents.ScoreAdded -= Calculate;
         MainUiController.restartGame -= RestartGame;
     }
 
@@ -97,13 +98,22 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if(score<5) {
             sideColliders[0].SetActive(true);
+            frontCollider[0].SetActive(true);
             sideColliders[1].SetActive(false);
+            frontCollider[1].SetActive(false);
             sideColliders[2].SetActive(false);
+            frontCollider[2].SetActive(false);
         } else if(score == 16) {
-            sideColliders[0].SetActive(true);
+            frontCollider[0].SetActive(true);
+            sideColliders[1].SetActive(true);
+            frontCollider[2].SetActive(true);
+            frontCollider[0].SetActive(true);
             sideColliders[1].SetActive(true);
             sideColliders[2].SetActive(true);
         } else if(score == 6) {
+            frontCollider[0].SetActive(true);
+            frontCollider[1].SetActive(true);
+            frontCollider[2].SetActive(false);
             sideColliders[0].SetActive(true);
             sideColliders[1].SetActive(true);
             sideColliders[2].SetActive(false);

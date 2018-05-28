@@ -23,14 +23,14 @@ public class PathManager : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		ScoreCount.ScoreAdded += Calculate;
-        ScoreCount.playerDied += UpdateHighScore;
+        GameEvents.ScoreAdded += Calculate;
+        GameEvents.playerDied += UpdateHighScore;
         MainUiController.restartGame += RestartGame;
 	}
 
 	void OnDisable() {
-		ScoreCount.ScoreAdded -= Calculate;
-        ScoreCount.playerDied -= UpdateHighScore;
+        GameEvents.ScoreAdded -= Calculate;
+        GameEvents.playerDied -= UpdateHighScore;
 	}
 
 	void Calculate() {
