@@ -7,20 +7,19 @@ public class MainUiController : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.Instance.playerDied += GameOver;
+        GameEvents.Instance.onPlayerDied += GameOver;
     }
 
     void OnDisable()
     {
-        GameEvents.Instance.playerDied -= GameOver;
+        GameEvents.Instance.onPlayerDied -= GameOver;
     }
 
     public void GameOver()
     {
-
         foreach (GameObject item in playerandEnemy)
         {
-            item.GetComponent<PathMove>().PLaying = false;
+            item.GetComponent<PathMove>().playing = false;
         }
         gameOverScreen.SetActive(true);
     }

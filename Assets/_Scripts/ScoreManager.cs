@@ -17,16 +17,16 @@ public class ScoreManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.Instance.ScoreAdded += Calculate;
-        GameEvents.Instance.playerDied += UpdateHighScore;
-        GameEvents.Instance.GameStarted += RestartGame;
+        GameEvents.Instance.onScoreAdded += Calculate;
+        GameEvents.Instance.onPlayerDied += UpdateHighScore;
+        GameEvents.Instance.onGameStarted += RestartGame;
     }
 
     void OnDisable()
     {
-        GameEvents.Instance.ScoreAdded -= Calculate;
-        GameEvents.Instance.playerDied -= UpdateHighScore;
-        GameEvents.Instance.GameStarted -= RestartGame;
+        GameEvents.Instance.onScoreAdded -= Calculate;
+        GameEvents.Instance.onPlayerDied -= UpdateHighScore;
+        GameEvents.Instance.onGameStarted -= RestartGame;
     }
 
     public void UpdateHighScore()

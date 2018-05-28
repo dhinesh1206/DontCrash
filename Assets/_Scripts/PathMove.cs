@@ -7,16 +7,16 @@ public class PathMove : MonoBehaviour
     public iTween.EaseType easeType;
     public List<Transform> waypoints;
     public List<PathList> NodePoints;
-    public List<pathNames> paths;
-    public int PathIndex, Score, Index = 0;
-    public float PathPercent = 0, speedMultiplier, initialPathPercentange;
+    public List<PathNames> paths;
+    public int pathIndex, score, index = 0;
+    public float pathPercent = 0, speedMultiplier, initialPathPercentange;
     public Transform[] currentWavePoint;
     public Transform lookatObject;
-    public bool PLaying, enemy;
+    public bool playing, enemy;
 
     void Start()
     {
-        PLaying = false;
+        playing = false;
     }
 
     void Awake()
@@ -26,45 +26,45 @@ public class PathMove : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.Instance.GameStarted += StartGame;
+        GameEvents.Instance.onGameStarted += StartGame;
     }
 
     private void OnDisable()
     {
-        GameEvents.Instance.GameStarted -= StartGame;
+        GameEvents.Instance.onGameStarted -= StartGame;
     }
 
     public void StartGame()
     {
-        PLaying = true;
-        PathPercent = initialPathPercentange;
+        playing = true;
+        pathPercent = initialPathPercentange;
         currentWavePoint = GetMyRoute(NodePoints[0].points);
     }
 
     void Update()
     {
-        if (PLaying)
+        if (playing)
         {
-            PathPercent += speedMultiplier / 10 * Time.deltaTime / currentWavePoint.Length;
-            iTween.PutOnPath(gameObject, currentWavePoint, PathPercent);
+            pathPercent += speedMultiplier / 10 * Time.deltaTime / currentWavePoint.Length;
+            iTween.PutOnPath(gameObject, currentWavePoint, pathPercent);
             if (lookatObject)
                 gameObject.transform.LookAt(lookatObject);
-            if (PathPercent > 1)
+            if (pathPercent > 1)
             {
                 if (gameObject.name == "EnemyCar1LookAT")
                     PathManager.instance.NextPathSelection();
-                PathPercent = 0;
-                changelanes();
+                pathPercent = 0;
+                ChangeLanes();
             }
         }
     }
 
-    void changelanes()
+    void ChangeLanes()
     {
         int index;
         if (enemy)
         {
-            index = PathIndex;
+            index = pathIndex;
         }
         else
         {
@@ -90,18 +90,4 @@ public class PathMove : MonoBehaviour
         return result.ToArray();
     }
 
-}
-
-[System.Serializable]
-public class PathList
-{
-    public string pathlistname;
-    public List<int> points;
-}
-
-[System.Serializable]
-public class pathNames
-{
-    public string pathname;
-    public string[] nextPath;
 }

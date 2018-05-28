@@ -1,43 +1,36 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderController : MonoBehaviour {
+public class ColliderController : MonoBehaviour
+{
 
     public int score;
-    public GameObject[] sideColliders;
-    //public PathMove[] players;
-    public GameObject[] frontCollider;
+    public GameObject[] sideColliders, frontCollider;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         score = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
     private void OnEnable()
     {
-        GameEvents.Instance.ScoreAdded += Instance_ScoreAdded;
-        GameEvents.Instance.GameStarted += Instance_GameStarted;
+        GameEvents.Instance.onScoreAdded += ScoreAdded;
+        GameEvents.Instance.onGameStarted += GameStarted;
     }
 
     private void OnDisable()
     {
-        GameEvents.Instance.ScoreAdded -= Instance_ScoreAdded;   
-        GameEvents.Instance.GameStarted += Instance_GameStarted;
+        GameEvents.Instance.onScoreAdded -= ScoreAdded;
+        GameEvents.Instance.onGameStarted += GameStarted;
     }
 
-    void Instance_ScoreAdded()
+    void ScoreAdded()
     {
         score += 1;
         ColliderCheck();
     }
 
-    void Instance_GameStarted()
+    void GameStarted()
     {
         score = 0;
         ColliderCheck();
@@ -92,6 +85,4 @@ public class ColliderController : MonoBehaviour {
             sideColliders[2].SetActive(false);
         }
     }
-
-
 }

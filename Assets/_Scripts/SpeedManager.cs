@@ -22,14 +22,14 @@ public class SpeedManager : MonoBehaviour {
 
     void OnEnable()
     {
-        GameEvents.Instance.ScoreAdded += Calculate;
-        GameEvents.Instance.GameStarted += RestartGame;
+        GameEvents.Instance.onScoreAdded += Calculate;
+        GameEvents.Instance.onGameStarted += RestartGame;
     }
 
     void OnDisable()
     {
-        GameEvents.Instance.ScoreAdded -= Calculate;
-        GameEvents.Instance.GameStarted -= RestartGame;
+        GameEvents.Instance.onScoreAdded -= Calculate;
+        GameEvents.Instance.onGameStarted -= RestartGame;
     }
 
     void Calculate()

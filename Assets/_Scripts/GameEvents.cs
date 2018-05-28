@@ -6,7 +6,7 @@ public class GameEvents : MonoBehaviour
     public static GameEvents Instance;
 
     public delegate void ParameterlessDelegate();
-    public event ParameterlessDelegate ScoreAdded, playerDied, GameStarted;
+    public event ParameterlessDelegate onScoreAdded, onPlayerDied, onGameStarted;
 
     private void Awake()
     {
@@ -15,26 +15,25 @@ public class GameEvents : MonoBehaviour
 
     public void IncrementScore()
     {
-        if (ScoreAdded != null)
+        if (onScoreAdded != null)
         {
-            ScoreAdded();
+            onScoreAdded();
         }
-
     }
 
     public void PlayerDie()
     {
-        if (playerDied != null)
+        if (onPlayerDied != null)
         {
-            playerDied();
+            onPlayerDied();
         }
     }
 
     public void StartGame()
     {
-        if (GameStarted != null)
+        if (onGameStarted != null)
         {
-            GameStarted();
+            onGameStarted();
         }
     }
 }

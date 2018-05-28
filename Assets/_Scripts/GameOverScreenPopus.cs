@@ -17,10 +17,6 @@ public class GameOverScreenPopus : MonoBehaviour
             button.transform.localScale = Vector3.zero;
         }
         StartCoroutine(Animatepopup());
-    }
-
-    void Update()
-    {
         bestScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 

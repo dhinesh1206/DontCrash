@@ -7,15 +7,14 @@ public class PathManager : MonoBehaviour
     public static PathManager instance;
     public int pathIndex, score;
     public PathMove[] enemy;
-    public List<pathNames> paths;
+    public List<PathNames> paths;
     public PathMove[] lookAt;
     public GameObject[] ScoreEnemyColliders;
 
     void Start()
     {
-        pathIndex = PathMove.instance.Index;
+        pathIndex = PathMove.instance.index;
         paths = PathMove.instance.paths;
-
     }
 
     void Awake()
@@ -25,24 +24,22 @@ public class PathManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.Instance.ScoreAdded += Calculate;
-       
-        GameEvents.Instance.GameStarted += RestartGame;
+        GameEvents.Instance.onScoreAdded += Calculate;
+
+        GameEvents.Instance.onGameStarted += RestartGame;
     }
 
     void OnDisable()
     {
-        GameEvents.Instance.ScoreAdded -= Calculate;
-       
-        GameEvents.Instance.GameStarted -= RestartGame;
+        GameEvents.Instance.onScoreAdded -= Calculate;
+
+        GameEvents.Instance.onGameStarted -= RestartGame;
     }
 
     void Calculate()
     {
         score += 1;
     }
-
-
 
     void RestartGame()
     {
@@ -61,36 +58,35 @@ public class PathManager : MonoBehaviour
             int number = Random.Range(0, paths[0].nextPath.Length);
             foreach (PathMove item in enemy)
             {
-                item.PathIndex = number;
+                item.pathIndex = number;
             }
             foreach (var item in lookAt)
             {
-                item.PathIndex = number;
+                item.pathIndex = number;
             }
         }
         else if (score > 5 && score < 16)
         {
             int index = Random.Range(1, paths[0].nextPath.Length);
-            enemy[0].PathIndex = index;
-            lookAt[0].PathIndex = index;
+            enemy[0].pathIndex = index;
+            lookAt[0].pathIndex = index;
 
             int number = index - 1;
-            enemy[1].PathIndex = number;
-            lookAt[1].PathIndex = number;
-            lookAt[2].PathIndex = number;
-            enemy[2].PathIndex = number;
+            enemy[1].pathIndex = number;
+            lookAt[1].pathIndex = number;
+            lookAt[2].pathIndex = number;
+            enemy[2].pathIndex = number;
         }
         else if (score > 16)
         {
             int index = Random.Range(2, paths[0].nextPath.Length);
-            lookAt[0].PathIndex = index;
-            lookAt[1].PathIndex = index - 1;
-            lookAt[2].PathIndex = index - 2;
-            enemy[0].PathIndex = index;
-            enemy[1].PathIndex = index - 1;
-            enemy[2].PathIndex = index - 2;
+            lookAt[0].pathIndex = index;
+            lookAt[1].pathIndex = index - 1;
+            lookAt[2].pathIndex = index - 2;
+            enemy[0].pathIndex = index;
+            enemy[1].pathIndex = index - 1;
+            enemy[2].pathIndex = index - 2;
 
         }
     }
-
 }
