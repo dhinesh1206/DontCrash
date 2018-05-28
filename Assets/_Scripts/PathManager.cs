@@ -70,7 +70,7 @@ public class PathManager : MonoBehaviour
             int index = Random.Range(1, paths[0].nextPath.Length);
             enemy[0].pathIndex = index;
             lookAt[0].pathIndex = index;
-
+           
             int number = index - 1;
             enemy[1].pathIndex = number;
             lookAt[1].pathIndex = number;

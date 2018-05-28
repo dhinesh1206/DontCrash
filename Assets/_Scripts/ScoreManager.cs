@@ -45,16 +45,12 @@ public class ScoreManager : MonoBehaviour
     void Calculate()
     {
         score += 1;
+        scoreText.text = score.ToString();
     }
 
     void RestartGame()
     {
         score = 0;
-    }
-
-
-    private void Update()
-    {
         scoreText.text = score.ToString();
     }
 

@@ -61,7 +61,6 @@ public class PathMove : MonoBehaviour
 
     void ChangeLanes()
     {
-        int index;
         if (enemy)
         {
             index = pathIndex;
